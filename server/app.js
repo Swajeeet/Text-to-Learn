@@ -63,7 +63,7 @@ app.use(
 );
 
 // Explicitly handle preflight requests for all routes
-app.options("*", cors());
+app.options("/{*path}", cors());
 
 // Global rate limiter — 100 requests per 15 minutes per IP
 const globalLimiter = rateLimit({
