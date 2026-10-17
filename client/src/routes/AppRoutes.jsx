@@ -21,7 +21,6 @@ const AppRoutes = () => {
       <Route element={<MainLayout />}>
         {/* Public for everyone */}
         <Route path="/" element={<Home />} />
-        <Route path="/generate-course" element={<GenerateCourse />} />
 
         {/* Public-only: redirect authenticated users to /dashboard */}
         <Route element={<PublicRoute />}>
@@ -31,6 +30,7 @@ const AppRoutes = () => {
 
         {/* Private: redirect unauthenticated users to /login */}
         <Route element={<PrivateRoute />}>
+          <Route path="/generate-course" element={<GenerateCourse />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/my-courses" element={<MyCourses />} />

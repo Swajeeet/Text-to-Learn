@@ -5,7 +5,7 @@
 ### AI-Powered Learning Platform — Turn Any Topic Into a Complete Course
 
 [![Live Demo](https://img.shields.io/badge/🚀_Live_Demo-Vercel-black?style=for-the-badge&logo=vercel)](https://text-to-learn-nu.vercel.app)
-[![API Health](https://img.shields.io/badge/⚡_API-Railway-blueviolet?style=for-the-badge&logo=railway)](https://text-to-learn-production.up.railway.app/api/v1/health)
+[![API Health](https://img.shields.io/badge/⚡_API-Render-46E3B7?style=for-the-badge&logo=render)](https://text-to-learn-dzhm.onrender.com/api/v1/health)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](./LICENSE)
 [![Node.js](https://img.shields.io/badge/Node.js-18+-green?style=for-the-badge&logo=node.js)](https://nodejs.org)
 [![React](https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react)](https://react.dev)
@@ -182,7 +182,7 @@ MongoDB Atlas (parallel writes):
 | Service | Purpose |
 |---|---|
 | **MongoDB Atlas** | Managed cloud NoSQL database |
-| **Railway** | Backend hosting and deployment |
+| **Render** | Backend hosting and deployment |
 | **Vercel** | Frontend hosting and CDN |
 | **OpenRouter** | AI model routing and LLM API access |
 | **YouTube Data API v3** | Educational video recommendations |
@@ -402,7 +402,7 @@ YOUTUBE_API_KEY=AIzaSyXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 VITE_API_URL=http://localhost:5000/api/v1
 
 # Production
-# VITE_API_URL=https://text-to-learn-production.up.railway.app/api/v1
+# VITE_API_URL=https://text-to-learn-dzhm.onrender.com/api/v1
 ```
 
 > 📖 Full deployment environment guide: [docs/Deployment.md](./docs/Deployment.md)
@@ -411,7 +411,7 @@ VITE_API_URL=http://localhost:5000/api/v1
 
 ## 📡 API Reference
 
-**Base URL:** `https://text-to-learn-production.up.railway.app/api/v1`
+**Base URL:** `https://text-to-learn-dzhm.onrender.com/api/v1`
 
 ### 🔐 Authentication
 
@@ -426,7 +426,7 @@ VITE_API_URL=http://localhost:5000/api/v1
 
 | Method | Endpoint | Auth | Description |
 |---|---|---|---|
-| `POST` | `/ai/generate-course` | ❌ | Generate complete course from topic |
+| `POST` | `/ai/generate-course` | ✅ | Generate complete course from topic |
 
 ### 📚 Courses
 
@@ -491,22 +491,23 @@ VITE_API_URL=http://localhost:5000/api/v1
 | Layer | Platform | URL |
 |---|---|---|
 | **Frontend** | Vercel | [text-to-learn-nu.vercel.app](https://text-to-learn-nu.vercel.app) |
-| **Backend** | Railway | [text-to-learn-production.up.railway.app](https://text-to-learn-production.up.railway.app) |
+| **Backend** | Render | [text-to-learn-dzhm.onrender.com](https://text-to-learn-dzhm.onrender.com) |
 | **Database** | MongoDB Atlas | Cloud-hosted, auto-scaled |
 
 ### Frontend — Vercel
 1. Push to GitHub
 2. Import repo in [vercel.com](https://vercel.com)
 3. Set **Root Directory** to `client`
-4. Add environment variable: `VITE_API_URL=https://your-backend.railway.app/api/v1`
+4. Add environment variable: `VITE_API_URL=https://text-to-learn-dzhm.onrender.com/api/v1`
 5. Deploy
 
-### Backend — Railway
-1. Create new project at [railway.app](https://railway.app)
+### Backend — Render
+1. Create new Web Service at [render.com](https://render.com)
 2. Connect your GitHub repository
 3. Set **Root Directory** to `server`
-4. Add all environment variables from `server/.env.example`
-5. Railway auto-detects Node.js and runs `npm start`
+4. Set **Build Command** to `npm install` and **Start Command** to `node server.js`
+5. Add all environment variables from `server/.env.example`
+6. Select **Free** instance type and deploy
 
 > 📖 Full deployment guide: [docs/Deployment.md](./docs/Deployment.md)
 
@@ -575,7 +576,7 @@ The project demonstrates:
 - **AI integration patterns** — prompt engineering, response cleaning, JSON validation, fallback handling
 - **Security best practices** — JWT, bcrypt, rate limiting, Helmet, input validation
 - **REST API design** — proper middleware chains, async error handling, standardized responses
-- **Cloud deployment** — three separate services communicating across Vercel, Railway, and MongoDB Atlas
+- **Cloud deployment** — three separate services communicating across Vercel, Render, and MongoDB Atlas
 
 ---
 

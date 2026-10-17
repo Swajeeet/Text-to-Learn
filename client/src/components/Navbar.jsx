@@ -48,7 +48,6 @@ const Navbar = () => {
       ]
     : [
         { to: "/", label: "Home", end: true },
-        { to: "/generate-course", label: "Generate Course" },
       ];
 
   return (
